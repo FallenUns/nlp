@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h1>{{ job.Title }}</h1>
+  <p>Company: {{ job.Company }}</p>
+  <p>Category: {{ job.Category }}</p>
+  <p>Description: {{ job.Description }}</p>
+  <p>Salary: {{ job['Salary'] }}</p>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h1>Create New Job Listing</h1>
+  <form action="{{ url_for('new_job') }}" method="POST" id="job-form" class="form-container">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="company">Company:</label>
+      <input type="text" id="company" name="company" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" class="form-control" rows="20" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <select id="category" name="category" class="form-control">
+        {% for category in recommended_categories %}
+          <option value="{{ category }}">{{ category }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <button type="button" id="predict-button" class="btn btn-primary">Predict Category</button>
+      <div id="loading" style="display:none;">Loading...</div>
+      <div id="prediction"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="salary">Salary:</label>
+      <input type="number" id="salary" name="salary" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <input type="submit" value="Create Job" class="btn btn-success">
+    </div>
+  </form>
+{% endblock %}

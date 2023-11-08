@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <h1>Job Listings in {{ category }}</h1>
+    {% for job in jobs %}
+      <div class="job-listing">
+          <h2>{{ job['Title'] }}</h2>
+          <p>Company: {{ job['Company'] }}</p>
+          <p>Category: {{ job['Category'] }}</p>
+          <p>Salary: {{ job['Salary'] }}</p>
+          <div class="description-summary">
+            {{ job['Description'][:300] }}...
+            <span class="more-text" style="display:none;">{{ job['Description'][300:] }}</span>
+          </div>
+          <a href="{{ url_for('job_details', webindex=job['Webindex']) }}">Read More</a>
+      </div>
+    {% endfor %}
+
+
+  <div class="pagination">
+    {% if page > 1 %}
+      <a href="{{ url_for('browse_by_category', category=category, page=1) }}">First</a>
+      <a href="{{ url_for('browse_by_category', category=category, page=page-1) }}">Previous</a>
+    {% endif %}
+
+    {% set start_page = [page-2, 1] | max %}
+    {% set end_page = [page+2, total_pages] | min %}
+
+    {% for i in range(start_page, end_page+1) %}
+      <a href="{{ url_for('browse_by_category', category=category, page=i) }}"
+         class="{% if i == page %}current{% endif %}">{{ i }}</a>
+    {% endfor %}
+
+    {% if page < total_pages %}
+      <a href="{{ url_for('browse_by_category', category=category, page=page+1) }}">Next</a>
+      <a href="{{ url_for('browse_by_category', category=category, page=total_pages) }}">Last</a>
+    {% endif %}
+  </div>
+{% endblock %}

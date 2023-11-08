@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css" media="all" />
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <div id="shell" height=auto>
+        <div class="top-bar">
+            <h1 class="title"><a href="/">Job Seeker</a></h1>
+            <div id="search">
+                <form action="/search" method="POST">
+                    <label for="search-string">Search</label>
+                    <div class="fields">
+                        <input type="text" name="searchword" class="field" />
+                        <input type="submit" name="search" value="Search" class="submit" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="navigation">
+            <ul class="nav-list">
+                <li><a href="/">All Jobs</a></li>
+                <li><a href="{{ url_for('browse_by_category', category='Accounting_Finance') }}">Accounting & Finance</a></li>
+                <li><a href="{{ url_for('browse_by_category', category='Engineering') }}">Engineering</a></li>
+                <li><a href="{{ url_for('browse_by_category', category='Healthcare_Nursing') }}">Healthcare & Nursing</a></li>
+                <li><a href="{{ url_for('browse_by_category', category='Sales') }}">Sales</a></li>
+            </ul>
+            <div class="add-new-job">
+                <a href="{{ url_for('new_job') }}" class="new-job-button">Add New Job</a>
+            </div>
+        </div>
+        
+        {% block body %}
+        {% endblock %}
+    </div>
+
+    {% block script %}
+    {% endblock %}
+</body>
+</html>

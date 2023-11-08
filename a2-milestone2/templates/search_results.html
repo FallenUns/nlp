@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="search-results">
+        <h1>Search Results</h1>
+        {% if jobs %}
+            {% for job in jobs %}
+                <div class="job-listing">
+                    <h2>{{ job['Title'] }}</h2>
+                    <p>Company: {{ job['Company'] }}</p>
+                    <p>Category: {{ job['Category'] }}</p>
+                    <p>Salary: {{ job['Salary'] }}</p>
+                    <div class="description-summary">
+                        {{ job['Description'][:300] }}...
+                        <span class="more-text" style="display:none;">{{ job['Description'][300:] }}</span>
+                    </div>
+                    <a href="{{ url_for('job_details', webindex=job['Webindex']) }}">Read More</a>
+                </div>
+            {% endfor %}    
+        {% else %}
+            <p class="no-results">No results found.</p>
+        {% endif %}
+    </div>
+{% endblock %}
