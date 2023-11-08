@@ -41,4 +41,4 @@ Files Included:
 - README.txt: This file
 
 Files Missing:
-- a2-milestone2/data/crawl-300d-2M-subword.bin the file size is 6.73 can be obtained in https://fasttext.cc/docs/en/english-vectors.html
+- a2-milestone2/data/crawl-300d-2M-subword.bin the file size is 6.73 GB can be obtained in https://fasttext.cc/docs/en/english-vectors.html
