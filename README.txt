@@ -1,5 +1,3 @@
-Student Number: <s3967271>
-
 Project Title: Job Seeker Website
 
 Description:
@@ -42,9 +40,5 @@ Files Included:
 - `requirements.txt`: Lists all the required packages.
 - README.txt: This file
 
-Additional Notes:
-The total size of the project files exceeds 50MB, and they are packaged in a ZIP file and uploaded to OneDrive. The OneDrive URL is: https://rmiteduau-my.sharepoint.com/:u:/g/personal/s3967271_student_rmit_edu_au/EcaxaeWU_GNOlq1-8c_WYuEB5ij_wCaux6atM4UqCrxXSQ?e=XVOn3R
-
-Demo Video:
-A 3-minute demo video is available. The OneDrive URL for the video is: https://rmiteduau-my.sharepoint.com/:v:/g/personal/s3967271_student_rmit_edu_au/EQcrlSd5sO1Bn5d6MVFyTPkBzg16_FVk-8abgz3JpM_T4Q?e=b9R7us
-
+Files Missing:
+- a2-milestone2/data/crawl-300d-2M-subword.bin the file size is 6.73 can be obtained in https://fasttext.cc/docs/en/english-vectors.html
